@@ -12,7 +12,7 @@ import HeroSlider from "@/components/HeroSlider"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
-import { Github, Presentation, ArrowRight, ShieldAlert, Cpu, Globe } from "lucide-react"
+import { Github, Presentation, ArrowRight, ShieldAlert, Cpu, Globe, Briefcase, HardHat, Drill } from "lucide-react"
 
 const PROJECTS = [
   { title: "Smart Door Lock", link: "/projects/doorlock" },
@@ -33,6 +33,12 @@ export default function Home() {
     }
   }
 
+  const handleOpenCert = () => {
+    if (typeof window !== "undefined") {
+      window.open("/files/ONGC_Internship_Certificate.pdf", "_blank")
+    }
+  }
+
   const cardWrapper = "rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl shadow-xl transition duration-500 hover:-translate-y-1 hover:border-purple-400 hover:shadow-purple-500/20"
 
   return (
@@ -47,7 +53,6 @@ export default function Home() {
       {/* ===== CONTENT ===== */}
       <div className="relative z-10">
 
-        {/* ===== HEADER ===== */}
         <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/40 border-b border-white/10">
           <Navbar />
         </header>
@@ -100,15 +105,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ===== CONFERENCE SECTION ===== */}
-        <section id="conference" className="max-w-7xl mx-auto px-6 pb-32 scroll-mt-24">
+        {/* ===== INTERNSHIP & CONFERENCE SECTION ===== */}
+        <section id="experience" className="max-w-7xl mx-auto px-6 pb-32 scroll-mt-24">
           <div className="mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold">Conference & Publications</h2>
-            <p className="text-gray-500 mt-2">Academic research presented at international venues.</p>
+            <h2 className="text-3xl md:text-4xl font-bold">Research & Internship Experience</h2>
+            <p className="text-gray-500 mt-2">Hands-on industry exposure and academic publications.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 
+            {/* CONFERENCE CARD */}
             <Card className="bg-white/5 border border-white/10 backdrop-blur-2xl shadow-2xl overflow-hidden rounded-[2rem]">
               <CardHeader className="bg-gradient-to-br from-white/5 to-transparent border-b border-white/10 p-8">
                 <div className="flex flex-col gap-6">
@@ -118,12 +124,10 @@ export default function Home() {
                     </span>
                     <span className="text-[10px] text-gray-500 font-mono">Paper ID: 402</span>
                   </div>
-
                   <CardTitle className="text-3xl font-black text-white leading-tight">
                     Security Vulnerabilities in <br />
                     <span className="text-purple-400">Agentic AI Assistants</span>
                   </CardTitle>
-
                   <Button
                     className="w-full bg-orange-600 hover:bg-orange-700 text-white font-black flex items-center justify-center gap-3 py-7 rounded-2xl transition-all group"
                     onClick={handleOpenPPT}
@@ -133,7 +137,6 @@ export default function Home() {
                   </Button>
                 </div>
               </CardHeader>
-
               <CardContent className="p-8 space-y-8">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 rounded-2xl bg-white/5 border border-white/5 space-y-1">
@@ -147,132 +150,82 @@ export default function Home() {
                     <p className="text-[10px] text-gray-500">Agentic Entities</p>
                   </div>
                 </div>
-
                 <div className="space-y-4">
                   <p className="text-gray-300 text-sm leading-relaxed">
-                    As we transition from <strong>Traditional AI</strong> to <strong>Agentic AI</strong>, assistants have evolved into self-governing entities. This shift introduces a "Threat Evolution" cycle where virtual vulnerabilities manifest as physical security breaches in IoT-based environments.
+                    Analyzing how virtual vulnerabilities in autonomous agents manifest as physical security breaches in IoT environments.
                   </p>
-                  <div className="pt-4 border-t border-white/5">
-                    <p className="text-gray-400 text-[11px] italic">
-                      Lead Researchers: Bhoomika Saxena & Navya Gupta
-                    </p>
-                    <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mt-1">
-                      Manipal University Jaipur
-                    </p>
-                  </div>
                 </div>
-
                 <Accordion type="single" collapsible className="w-full">
                   <AccordionItem value="full-article" className="border-none">
                     <AccordionTrigger className="text-cyan-400 hover:text-white transition-colors hover:no-underline bg-white/5 px-6 py-4 rounded-xl text-sm border border-white/10 group">
-                      View Technical Summary <ArrowRight size={14} className="ml-2 group-data-[state=open]:rotate-90 transition-transform" />
+                      Technical Summary <ArrowRight size={14} className="ml-2 group-data-[state=open]:rotate-90 transition-transform" />
                     </AccordionTrigger>
-
-                    {/* Full Article AccordionContent */}
-                    <AccordionContent className="pt-6 text-gray-400 text-sm space-y-6 leading-relaxed">
-
-                      {/* Abstract */}
-                      <section className="space-y-2">
-                        <h4 className="text-white font-bold text-xs uppercase tracking-widest flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full" /> Abstract
-                        </h4>
-                        <p>
-                          This paper investigates security vulnerabilities in autonomous Agentic AI systems interacting with IoT devices. Specifically, we focus on adversarial prompt injections, telemetry manipulation, and privilege escalation risks that may compromise physical safety and privacy. Our study introduces a mitigation framework integrating Runtime Sandbox Validation, Telemetry Sanitization, Human-in-the-Loop verification, and privilege escalation prevention.
-                        </p>
-                      </section>
-
-                      {/* Problem Statement */}
-                      <section className="space-y-2">
-                        <h4 className="text-white font-bold text-xs uppercase tracking-widest flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 bg-purple-400 rounded-full" /> Problem Statement
-                        </h4>
-                        <p>
-                          Agentic AI systems, capable of autonomous decision-making, are vulnerable to attacks that bypass safety logic. Adversaries can craft malicious prompts, inject corrupted telemetry data, or escalate privileges to gain unauthorized access to critical system functions. Examples include unlocking smart doors, disabling alarms, or manipulating emergency notification systems.
-                        </p>
-                      </section>
-
-                      {/* Proposed Mitigation Framework */}
-                      <section className="space-y-2">
-                        <h4 className="text-white font-bold text-xs uppercase tracking-widest flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full" /> Proposed Mitigation Framework
-                        </h4>
-                        <ul className="list-disc list-inside space-y-2 text-[11px]">
-                          <li><strong>Runtime Sandbox Validation:</strong> Isolates AI execution in secure sandboxes and validates all actions against predefined safety rules.</li>
-                          <li><strong>Telemetry Sanitization:</strong> Filters IoT data streams to remove potentially malicious inputs before reaching AI agents.</li>
-                          <li><strong>Human-in-the-Loop Verification:</strong> Critical actions require manual confirmation to prevent cascading failures.</li>
-                          <li><strong>Privilege Escalation Prevention:</strong> Implements strict role-based access control and runtime privilege checks to ensure AI agents cannot gain unauthorized permissions.</li>
-                          <li><strong>EchoLeak Defense:</strong> Prevents unauthorized command execution via zero-click prompt injections.</li>
-                        </ul>
-                      </section>
-
-                      {/* Case Study */}
-                      <section className="space-y-2">
-                        <h4 className="text-white font-bold text-xs uppercase tracking-widest flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 bg-purple-400 rounded-full" /> Case Study: Comet AI Browser
-                        </h4>
-                        <p>
-                          We evaluated the Comet AI Browser, which integrates multiple AI agents for autonomous web browsing and IoT control. Our tests demonstrated how prompt injection, telemetry tampering, and privilege escalation could lead to unauthorized system actions.
-                        </p>
-                        <p>
-                          Our framework effectively blocked these attacks, ensuring that even compromised AI agents could not perform unsafe actions without sandbox validation, HITL oversight, and privilege enforcement.
-                        </p>
-                        <div className="grid grid-cols-2 gap-3 py-2">
-                          <div className="relative h-32 rounded-lg overflow-hidden border border-white/10 bg-white/5 flex items-center justify-center">
-                            <span className="text-gray-500 text-[10px]">[Diagram: Threat Flow]</span>
-                          </div>
-                          <div className="relative h-32 rounded-lg overflow-hidden border border-white/10 bg-white/5 flex items-center justify-center">
-                            <span className="text-gray-500 text-[10px]">[Diagram: Mitigation Architecture]</span>
-                          </div>
-                        </div>
-                      </section>
-
-                      {/* Experimental Results */}
-                      <section className="space-y-2">
-                        <h4 className="text-white font-bold text-xs uppercase tracking-widest flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full" /> Experimental Results
-                        </h4>
-                        <p>
-                          Simulated adversarial attacks on IoT-integrated AI agents revealed that unprotected systems could be hijacked within milliseconds. Implementing the proposed framework increased attack resistance by over 95%, verified through repeated trials, and prevented privilege escalation attacks entirely.
-                        </p>
-                        <div className="relative h-36 rounded-lg overflow-hidden border border-white/10 bg-white/5 flex items-center justify-center">
-                          <span className="text-gray-500 text-[10px]">[Chart: Attack Mitigation Success Rate]</span>
-                        </div>
-                      </section>
-
-                      {/* Discussion & Future Scope */}
-                      <section className="space-y-2">
-                        <h4 className="text-white font-bold text-xs uppercase tracking-widest flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 bg-purple-400 rounded-full" /> Discussion & Future Scope
-                        </h4>
-                        <p>
-                          While our framework significantly improves the security of Agentic AI systems, future work could extend to:
-                        </p>
-                        <ul className="list-disc list-inside text-[11px] space-y-1">
-                          <li>Integration with multi-agent AI ecosystems for coordinated defense.</li>
-                          <li>Automated threat detection using reinforcement learning for real-time response.</li>
-                          <li>Enhanced visualization dashboards for IoT telemetry and AI decisions.</li>
-                          <li>Open-source toolkit for academia and industry to test AI-to-physical security vulnerabilities.</li>
-                        </ul>
-                      </section>
-
-                      {/* Keywords */}
-                      <section className="space-y-2">
-                        <h4 className="text-cyan-400 font-bold text-xs uppercase tracking-widest">Keywords</h4>
-                        <p className="text-[10px] italic">Agentic AI, IoT Security, Prompt Injection, Runtime Sandbox, Human-in-the-Loop, Privilege Escalation Prevention, AI Safety</p>
-                      </section>
-
+                    <AccordionContent className="pt-6 text-gray-400 text-sm space-y-4">
+                      <p>Focuses on adversarial prompt injections and privilege escalation in autonomous AI agents interacting with physical IoT security protocols.</p>
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
               </CardContent>
             </Card>
 
-            <div className="hidden md:flex flex-col justify-center items-center text-center p-12 space-y-4">
-              <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center text-gray-500 animate-pulse">
-                +
-              </div>
-              <p className="text-gray-600 text-sm font-medium italic">Further publications <br /> under review</p>
-            </div>
+            {/* ONGC INTERNSHIP CARD */}
+            <Card className="bg-white/5 border border-white/10 backdrop-blur-2xl shadow-2xl overflow-hidden rounded-[2rem]">
+              <CardHeader className="bg-gradient-to-br from-white/5 to-transparent border-b border-white/10 p-8">
+                <div className="flex flex-col gap-6">
+                  <div className="flex justify-between items-center">
+                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-bold tracking-[0.2em] uppercase">
+                      <Briefcase size={12} /> ONGC DEHRADUN
+                    </span>
+                    <span className="text-[10px] text-gray-500 font-mono">Summer 2024</span>
+                  </div>
+                  <CardTitle className="text-3xl font-black text-white leading-tight">
+                    Industrial Training & <br />
+                    <span className="text-purple-400">Drilling Technology</span>
+                  </CardTitle>
+                  <Button
+                    className="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-black flex items-center justify-center gap-3 py-7 rounded-2xl transition-all group"
+                    onClick={handleOpenCert}
+                  >
+                    <Drill size={20} className="group-hover:rotate-12 transition-transform" />
+                    VIEW COMPLETION CERTIFICATE
+                  </Button>
+                </div>
+              </CardHeader>
+              <CardContent className="p-8 space-y-8">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="p-4 rounded-2xl bg-white/5 border border-white/5 space-y-1">
+                    <HardHat size={18} className="text-purple-400" />
+                    <p className="text-xs font-bold text-white uppercase tracking-tighter">Department</p>
+                    <p className="text-[10px] text-gray-500">Drilling Services</p>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-white/5 border border-white/5 space-y-1">
+                    <Cpu size={18} className="text-cyan-400" />
+                    <p className="text-xs font-bold text-white uppercase tracking-tighter">Exposure</p>
+                    <p className="text-[10px] text-gray-500">SCADA & Automation</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    Hands-on experience at **ONGC (Oil and Natural Gas Corporation)**, focusing on drilling rig automation, safety protocols, and industrial IoT integration.
+                  </p>
+                </div>
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="intern-summary" className="border-none">
+                    <AccordionTrigger className="text-cyan-400 hover:text-white transition-colors hover:no-underline bg-white/5 px-6 py-4 rounded-xl text-sm border border-white/10 group">
+                      Hands-on Summary <ArrowRight size={14} className="ml-2 group-data-[state=open]:rotate-90 transition-transform" />
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-6 text-gray-400 text-sm space-y-4">
+                      <p>Gained deep insights into the mechanics of drilling rigs, offshore/onshore operations, and the implementation of automated monitoring systems in high-risk environments.</p>
+                      <ul className="list-disc list-inside space-y-1 text-[11px]">
+                        <li>Study of Blowout Preventers (BOP) Control Systems.</li>
+                        <li>Analysis of real-time mud logging sensors.</li>
+                        <li>Industrial safety standards (HSE) and risk mitigation.</li>
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </CardContent>
+            </Card>
 
           </div>
         </section>
