@@ -272,7 +272,7 @@ export default function Home() {
 
         <div className="relative group overflow-hidden rounded-2xl border border-white/10">
           <img
-            src="/conference.jpeg"
+            src="/res.jpeg"
             alt="SMARTCOM Conference 2"
             className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
           />
