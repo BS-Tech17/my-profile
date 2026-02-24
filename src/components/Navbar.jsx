@@ -32,7 +32,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 flex flex-col items-center px-6 py-4 text-white backdrop-blur-xl bg-black/40 border-b border-white/10">
       <div className="w-full flex items-center justify-between">
         <Link href="/" className="hover:opacity-80 transition">
-          <h1 className="font-bold text-xl tracking-widest cursor-pointer">Bhoomika.dev</h1>
+          <h1 className="font-bold text-xl tracking-widest cursor-pointer">BHOOMIKA SAXENA</h1>
         </Link>
 
         <div className="flex items-center gap-4 text-sm">
@@ -92,15 +92,15 @@ export default function Navbar() {
               <p className="flex items-center justify-center gap-2">
                 <span>📧</span>
                 <a
-                  href="mailto:yourmail@example.com"
+                  href="mailto:sbhoomi1730@gmail.com"
                   className="text-cyan-400 hover:text-cyan-300 transition underline-offset-4 hover:underline"
                 >
-                  yourmail@example.com
+                  sbhoomi1730@gmail.com
                 </a>
               </p>
               <p className="flex items-center justify-center gap-2">
                 <span>📞</span>
-                <span className="text-cyan-400">+91 98765 43210</span>
+                <span className="text-cyan-400">+91 8433077031</span>
               </p>
             </div>
           </div>
