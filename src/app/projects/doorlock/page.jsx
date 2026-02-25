@@ -2,33 +2,25 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import SmartCarousel from "@/components/SmartCarousel" // Updated to match your component name
+import SmartCarousel from "@/components/SmartCarousel"
 import { Badge } from "@/components/ui/badge"
 import { 
   ArrowLeft, Cpu, Zap, ShieldCheck, 
-  Lock, Smartphone, Activity, FileText, 
-  Github, Bell, Users 
+  Activity, Github, Bell, Users, Award
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
 
 export default function SmartDoorLockPage() {
   const [mounted, setMounted] = useState(false)
 
-  // Fixes Hydration Issue
   useEffect(() => {
     setMounted(true)
   }, [])
 
   if (!mounted) return null
 
-  const handleOpenPatent = () => {
-    if (typeof window !== "undefined") {
-      window.open("/files/Patent_Certificate_SmartLock.pdf", "_blank")
-    }
-  }
-
   return (
     <main className="min-h-screen text-white bg-black selection:bg-purple-500/30">
+
       {/* Dynamic Background */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-purple-900/20 blur-[120px] rounded-full" />
@@ -36,6 +28,7 @@ export default function SmartDoorLockPage() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 py-10">
+
         {/* Navigation */}
         <Link href="/" className="group flex items-center gap-2 text-gray-500 hover:text-white mb-10 transition-colors">
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
@@ -48,12 +41,14 @@ export default function SmartDoorLockPage() {
             <Badge className="bg-purple-500/10 text-purple-400 border-purple-500/20 px-3 py-1">
               Embedded Security & GSM
             </Badge>
+
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
-              SecureLock: Offline <br />
+              SecureLock: <br />
               <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
                 Home Security System
               </span>
             </h1>
+
             <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
               A high-reliability security model that operates without Wi-Fi. 
               Utilizing <strong>GSM technology</strong>, it provides real-time alerts 
@@ -69,7 +64,7 @@ export default function SmartDoorLockPage() {
             </div>
           </div>
 
-          {/* Compact Smart Carousel */}
+          {/* Carousel */}
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-cyan-600 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
             <div className="relative rounded-2xl border border-white/10 bg-black p-2 shadow-2xl overflow-hidden">
@@ -102,14 +97,15 @@ export default function SmartDoorLockPage() {
           />
         </div>
 
-        {/* DETAILED INFO BENTO */}
+        {/* DETAILED INFO */}
         <div className="grid md:grid-cols-3 gap-6 mt-6">
           <div className="md:col-span-2 bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm">
             <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
               <Activity className="text-purple-400" size={20} /> Security Workflow
             </h3>
+
             <div className="space-y-6">
-              {[ 
+              {[
                 { s: "01", t: "User Authentication", d: "User enters a secure password via the 4x4 matrix keypad." },
                 { s: "02", t: "Verification", d: "System checks credentials; if incorrect 3 times, it triggers the alert cycle." },
                 { s: "03", t: "Physical Response", d: "Servo motor actuates the latch for authorized users while sensors count entries." },
@@ -130,6 +126,7 @@ export default function SmartDoorLockPage() {
             <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
               <Cpu className="text-cyan-400" size={20} /> Hardware Stack
             </h3>
+
             <ul className="space-y-4 text-sm text-gray-300">
               <li className="flex justify-between border-b border-white/5 pb-2">
                 <span>Arduino Uno</span>
@@ -155,30 +152,56 @@ export default function SmartDoorLockPage() {
           </div>
         </div>
 
-        {/* DOCUMENTATION & REPO SECTION */}
-        <div className="mt-16 flex flex-col md:flex-row items-center justify-center gap-4">
+        {/* PATENT CERTIFICATE SECTION */}
+        <div className="mt-20">
+          <div className="relative group max-w-4xl mx-auto">
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-cyan-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+
+            <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 px-8 py-8 rounded-3xl bg-white/5 border border-white/10 hover:border-white/20 transition-all backdrop-blur-sm">
+
+              <div className="space-y-3 text-center md:text-left">
+                <Badge className="bg-cyan-500/10 text-cyan-400 border-cyan-500/20 px-3 py-1">
+                  Intellectual Property
+                </Badge>
+
+                <h3 className="text-2xl font-bold tracking-tight flex items-center gap-2 justify-center md:justify-start">
+                  <Award size={20} className="text-cyan-400" />
+                  Patent Certificate
+                </h3>
+
+                <p className="text-gray-400 text-sm max-w-md">
+                  Officially filed innovation for the SecureLock 
+                  GSM-based Home Security System.
+                </p>
+              </div>
+
+              <a
+                href="/smartdoorpatent.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-2xl bg-gradient-to-r from-purple-500 to-cyan-600 text-black font-semibold hover:scale-105 transition-transform"
+              >
+                View Certificate
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* GITHUB SECTION */}
+        <div className="mt-16 flex justify-center">
           <a
-            href="https://github.com/your-username/smart-door-lock"
+            href="https://github.com/BS-Tech17/SMS-Based-Smart-Door-Lock"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full md:w-auto flex items-center justify-center gap-3 px-8 py-4 rounded-3xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all group"
+            className="flex items-center gap-3 px-8 py-4 rounded-3xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all group"
           >
             <Github className="w-6 h-6 text-white group-hover:text-purple-400" />
             <span className="text-white font-medium group-hover:text-purple-400">
               View GitHub Repository
             </span>
           </a>
-
-          <button
-            onClick={handleOpenPatent}
-            className="w-full md:w-auto flex items-center justify-center gap-3 px-8 py-4 rounded-3xl bg-cyan-500/10 border border-cyan-500/20 hover:bg-cyan-500/20 transition-all group"
-          >
-            <FileText className="w-6 h-6 text-cyan-400" />
-            <span className="text-cyan-400 font-medium">
-              View Patent Certificate
-            </span>
-          </button>
         </div>
+
       </div>
     </main>
   )

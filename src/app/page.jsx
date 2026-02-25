@@ -17,7 +17,7 @@ import { Github, Presentation, ArrowRight, Globe, Briefcase, FileCheck, Drill } 
 const PROJECTS = [
   { title: "Smart Door Lock", link: "/projects/doorlock" },
   { title: "Accident Detection AI", link: "/projects/acci" },
-  { title: "IoT Dashboard", link: "/projects/iot" }
+  { title: "IoT Dashboard", link: "/projects/iotproject" }
 ]
 
 export default function Home() {

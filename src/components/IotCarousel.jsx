@@ -4,13 +4,11 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 
 const images = [
-  "/Acciflow.jpeg",
-  "/1i.png",
-  "/2i.png",
-  "/3i.png",
-  "/Se.png",
-  "/w.jpg",
-  "/rpiy.jpg"
+"/hero.png",
+"/hero1.png",
+"/hero2.png",
+"/hero3.png",
+"/hero4.png",
 ]
 
 export default function AccidentCarousel() {
