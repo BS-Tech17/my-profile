@@ -3,14 +3,14 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
-import StockCarousel from "@/components/stockCarousel"
+import CryptoCarousel from "@/components/cryptoCarousel" // similar to StockCarousel
 import { 
   ArrowLeft, TrendingUp, LineChart, 
-  Activity, Newspaper, Database, 
+  Activity, Database, AlertTriangle, 
   BrainCircuit, Github 
 } from "lucide-react"
 
-export default function StockDashboardPage() {
+export default function CryptoArbitragePage() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -42,24 +42,24 @@ export default function StockDashboardPage() {
           {/* LEFT SIDE */}
           <div className="space-y-6">
             <Badge className="bg-cyan-500/10 text-cyan-400 border-cyan-500/20 px-3 py-1">
-              AI + Financial Analytics
+              AI + Crypto Analytics
             </Badge>
 
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
-              AI Stock <br />
+              Crypto <br />
               <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                Market Dashboard
+                Arbitrage Dashboard
               </span>
             </h1>
 
             <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
-              A real-time financial intelligence platform that delivers 
-              stock price analytics, risk assessment, fundamental reports, 
-              and sentiment-based market news using AI-powered insights.
+              A real-time cryptocurrency arbitrage detection platform. 
+              Pulls live prices from multiple exchanges, calculates potential profits 
+              after transaction fees, and alerts users for optimal trading opportunities.
             </p>
 
             <div className="flex flex-wrap gap-3">
-              {["Python", "Streamlit", "Yahoo Finance", "Alpha Vantage", "Plotly"].map((tech) => (
+              {["Python", "Node.js", "CoinGecko API", "Binance API", "Telegram Bot"].map((tech) => (
                 <span
                   key={tech}
                   className="text-[10px] font-bold px-3 py-1.5 bg-white/5 border border-white/10 rounded-full uppercase tracking-widest text-gray-300"
@@ -78,7 +78,7 @@ export default function StockDashboardPage() {
 
             {/* Carousel Container */}
             <div className="relative w-full max-w-[600px] h-[380px] rounded-3xl border border-white/10 bg-black/40 backdrop-blur-sm shadow-2xl overflow-hidden">
-              <StockCarousel />
+              <CryptoCarousel />
             </div>
 
           </div>
@@ -89,23 +89,23 @@ export default function StockDashboardPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <MetricCard 
             icon={<TrendingUp className="text-cyan-400" />} 
-            title="Live Price Tracking" 
-            desc="Real-time stock price visualization with dynamic trend charts." 
+            title="Live Arbitrage Detection" 
+            desc="Tracks live crypto prices across multiple exchanges for profit opportunities." 
           />
           <MetricCard 
             icon={<Activity className="text-blue-400" />} 
-            title="Risk Analytics" 
-            desc="Volatility and annual return calculation for investment decisions." 
+            title="Profit Calculation" 
+            desc="Calculates net profit after considering exchange fees and transfer costs." 
           />
           <MetricCard 
             icon={<Database className="text-cyan-400" />} 
-            title="Fundamental Data" 
-            desc="Balance sheets, income statements, and cash flow reports." 
+            title="Historical Patterns" 
+            desc="Stores historical arbitrage data to identify recurring opportunities." 
           />
           <MetricCard 
-            icon={<Newspaper className="text-blue-400" />} 
-            title="Market News" 
-            desc="Top 10 real-time news with sentiment analysis integration." 
+            icon={<AlertTriangle className="text-blue-400" />} 
+            title="Alerts & Notifications" 
+            desc="Telegram or email alerts when profitable trades are detected." 
           />
         </div>
 
@@ -118,10 +118,10 @@ export default function StockDashboardPage() {
 
             <div className="space-y-6">
               {[
-                { s: "01", t: "Data Fetching", d: "Stock price data retrieved using Yahoo Finance API." },
-                { s: "02", t: "Data Processing", d: "Python and Pandas clean and structure financial datasets." },
-                { s: "03", t: "Analytics Engine", d: "Calculates returns, risk metrics, and performance indicators." },
-                { s: "04", t: "Visualization", d: "Plotly renders interactive charts for dynamic analysis." }
+                { s: "01", t: "Data Collection", d: "Pull live prices from multiple crypto exchanges using APIs." },
+                { s: "02", t: "Arbitrage Detection", d: "Compare prices and calculate potential profit margins." },
+                { s: "03", t: "Profit & Risk Analysis", d: "Adjust for transaction fees, transfer times, and slippage." },
+                { s: "04", t: "Notifications", d: "Send Telegram or email alerts for profitable opportunities." }
               ].map((item) => (
                 <div key={item.s} className="flex gap-4">
                   <span className="text-cyan-500 font-mono font-bold">{item.s}</span>
@@ -142,23 +142,23 @@ export default function StockDashboardPage() {
             <ul className="space-y-4 text-sm text-gray-300">
               <li className="flex justify-between border-b border-white/5 pb-2">
                 <span>Python</span>
-                <span className="text-gray-500">Backend Logic</span>
+                <span className="text-gray-500">Data Processing & Alerts</span>
               </li>
               <li className="flex justify-between border-b border-white/5 pb-2">
-                <span>Streamlit</span>
-                <span className="text-gray-500">UI Framework</span>
+                <span>Node.js</span>
+                <span className="text-gray-500">Backend Server & API Integration</span>
               </li>
               <li className="flex justify-between border-b border-white/5 pb-2">
-                <span>Yahoo Finance</span>
-                <span className="text-gray-500">Market Data</span>
+                <span>CoinGecko / Binance API</span>
+                <span className="text-gray-500">Live Market Data</span>
               </li>
               <li className="flex justify-between border-b border-white/5 pb-2">
-                <span>Alpha Vantage</span>
-                <span className="text-gray-500">Financial Reports</span>
+                <span>Telegram Bot</span>
+                <span className="text-gray-500">User Notifications</span>
               </li>
               <li className="flex justify-between">
-                <span>Plotly</span>
-                <span className="text-gray-500">Charts</span>
+                <span>Chart.js / Plotly</span>
+                <span className="text-gray-500">Visualizations</span>
               </li>
             </ul>
           </div>
@@ -167,7 +167,7 @@ export default function StockDashboardPage() {
         {/* GITHUB SECTION */}
         <div className="mt-16 flex justify-center">
           <a
-            href="https://github.com/BS-Tech17/Stock-Market-Dashboard"
+            href="https://github.com/BS-Tech17/Crypto-Arbitrage-Dashboard"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 px-8 py-4 rounded-3xl bg-white/5 border border-white/10 hover:border-cyan-500/50 transition-all group"
