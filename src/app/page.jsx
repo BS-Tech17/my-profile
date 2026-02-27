@@ -17,7 +17,10 @@ import { Github, Presentation, ArrowRight, Globe, Briefcase, FileCheck, Drill } 
 const PROJECTS = [
   { title: "Smart Door Lock", link: "/projects/doorlock" },
   { title: "Accident Detection AI", link: "/projects/acci" },
-  { title: "IoT Dashboard", link: "/projects/iotproject" }
+  { title: "IoT Dashboard", link: "/projects/iotproject" },
+  { title: "Stock Market Dashboard", link: "/projects/stock" },
+  { title: "Stock Market Dashboard", link: "/projects/TBC" }
+
 ]
 
 export default function Home() {
@@ -29,19 +32,19 @@ export default function Home() {
 
   const handleOpenPPT = () => {
     if (typeof window !== "undefined") {
-      window.open("/files/Security_Vulnerabilities.pptx", "_blank")
+      window.open("/Security_Vulnerabilities.pdf", "_blank")
     }
   }
 
   const handleOpenSmartcomCert = () => {
     if (typeof window !== "undefined") {
-      window.open("/files/SmartCom_Certificate.pdf", "_blank")
+      window.open("/smartcom.pdf", "_blank")
     }
   }
 
   const handleOpenCert = () => {
     if (typeof window !== "undefined") {
-      window.open("/files/ONGC_Internship_Certificate.pdf", "_blank")
+      window.open("/smartcom1.pdf", "_blank")
     }
   }
 
@@ -86,13 +89,19 @@ export default function Home() {
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
 
-              <Link
-                href="https://github.com/BS-Tech17"
-                target="_blank"
-                className="flex items-center gap-3 px-8 py-3.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-lg hover:bg-white/10 transition"
-              >
-                <Github size={20} /> GitHub Profile
-              </Link>
+             <Link
+  href="https://github.com/BS-Tech17"
+  target="_blank"
+  className="group flex items-center gap-3 px-8 py-3.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-lg hover:bg-cyan-500/10 transition text-white"
+>
+  <Github
+    size={20}
+    className="transition-colors group-hover:text-cyan-400"
+  />
+  <span className="transition-colors group-hover:text-cyan-400">
+    GitHub Profile
+  </span>
+</Link>
             </div>
           </div>
 
