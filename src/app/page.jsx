@@ -19,7 +19,7 @@ const PROJECTS = [
   { title: "Accident Detection AI", link: "/projects/acci" },
   { title: "IoT Dashboard", link: "/projects/iotproject" },
   { title: "Stock Market Dashboard", link: "/projects/stock" },
-  { title: "Stock Market Dashboard", link: "/projects/tbc" }
+  { title: "Crypto Currency Arbitrage Detector", link: "/projects/tbc" }
 
 ]
 
