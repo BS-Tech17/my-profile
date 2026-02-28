@@ -5,9 +5,9 @@ import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const images = [
-  "/stk.png",
-  "/stk1.png",
-  "/stk2.png",
+  "/cryp1.png",
+  "/cryp2.png"
+  
 ]
 
 export default function StockCarousel() {

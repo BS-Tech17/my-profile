@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
+import CryptoCarousel from "@/components/cryptoCarousel"
 import { 
   ArrowLeft, TrendingUp, LineChart, 
   Activity, Database, AlertTriangle, 
@@ -27,7 +28,7 @@ export default function CryptoArbitragePage() {
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-900/20 blur-[120px] rounded-full" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 py-10">
+      <div className="max-w-7xl mx-auto px-6 py-10">
 
         {/* Navigation */}
         <Link href="/" className="group flex items-center gap-2 text-gray-500 hover:text-white mb-10 transition-colors">
@@ -35,75 +36,89 @@ export default function CryptoArbitragePage() {
           <span className="text-sm font-medium">Return to Dashboard</span>
         </Link>
 
-        {/* HERO SECTION */}
-        <div className="space-y-6 mb-24">
+        {/* HERO SECTION - RECONFIGURED FOR BIGGER IMAGE */}
+        <div className="grid lg:grid-cols-5 gap-12 items-center mb-24">
 
-          <Badge className="bg-cyan-500/10 text-cyan-400 border-cyan-500/20 px-3 py-1">
-            AI + Crypto Analytics
-          </Badge>
+          {/* LEFT SIDE: Content (Occupies 2/5 columns) */}
+          <div className="lg:col-span-2 space-y-6">
+            <Badge className="bg-cyan-500/10 text-cyan-400 border-cyan-500/20 px-3 py-1">
+              Crypto Analytics
+            </Badge>
 
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
-            Crypto <br />
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Arbitrage Dashboard
-            </span>
-          </h1>
-
-          <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
-            A real-time cryptocurrency arbitrage detection platform. 
-            Pulls live prices from multiple exchanges, calculates potential profits 
-            after transaction fees, and alerts users for optimal trading opportunities.
-          </p>
-
-          <div className="flex flex-wrap gap-3">
-            {["Python", "Node.js", "CoinGecko API", "Binance API", "Telegram Bot"].map((tech) => (
-              <span
-                key={tech}
-                className="text-[10px] font-bold px-3 py-1.5 bg-white/5 border border-white/10 rounded-full uppercase tracking-widest text-gray-300"
-              >
-                {tech}
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+              Crypto <br />
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                Arbitrage Dashboard
               </span>
-            ))}
+            </h1>
+
+            <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
+              A premium analytical interface designed to identify and track 
+              price discrepancies across global crypto exchanges in real-time.
+            </p>
+
+            <div className="flex flex-wrap gap-3">
+              {["React", "Next.js", "Tailwind", "Supabase", "Chart.js"].map((tech) => (
+                <span
+                  key={tech}
+                  className="text-[10px] font-bold px-3 py-1.5 bg-white/5 border border-white/10 rounded-full uppercase tracking-widest text-gray-300"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* RIGHT SIDE: Visual Carousel (Occupies 3/5 columns for "Bigger" feel) */}
+          <div className="lg:col-span-3 relative group">
+            
+            {/* Massive Glow Effect */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/30 to-blue-600/30 rounded-[2rem] blur-2xl opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+
+            {/* Carousel Container - Height increased to 500px */}
+            <div className="relative w-full h-[500px] rounded-[2rem] border border-white/10 bg-black/40 backdrop-blur-md shadow-2xl overflow-hidden flex items-center justify-center">
+              <CryptoCarousel />
+            </div>
+
           </div>
         </div>
 
         {/* FEATURE GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <MetricCard 
             icon={<TrendingUp className="text-cyan-400" />} 
-            title="Live Arbitrage Detection" 
-            desc="Tracks live crypto prices across multiple exchanges for profit opportunities." 
+            title="Dashboard Visualization" 
+            desc="Displays arbitrage opportunities and metrics in a clean, interactive dashboard." 
           />
           <MetricCard 
             icon={<Activity className="text-blue-400" />} 
-            title="Profit Calculation" 
-            desc="Calculates net profit after considering exchange fees and transfer costs." 
+            title="Profit Analysis" 
+            desc="Shows calculated profit trends over time for easy decision-making." 
           />
           <MetricCard 
             icon={<Database className="text-cyan-400" />} 
             title="Historical Patterns" 
-            desc="Stores historical arbitrage data to identify recurring opportunities." 
+            desc="Logs past data to help identify recurring arbitrage trends." 
           />
           <MetricCard 
             icon={<AlertTriangle className="text-blue-400" />} 
-            title="Alerts & Notifications" 
-            desc="Telegram or email alerts when profitable trades are detected." 
+            title="Notifications Ready" 
+            desc="Prepared to integrate alerts for key events and profitable trades." 
           />
         </div>
 
-        {/* DETAILED SECTION */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        {/* WORKFLOW & TECH STACK SECTION */}
+        <div className="grid md:grid-cols-3 gap-6 mt-6">
           <div className="md:col-span-2 bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm">
             <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
               <LineChart className="text-cyan-400" size={20} /> System Workflow
             </h3>
-
             <div className="space-y-6">
               {[
-                { s: "01", t: "Data Collection", d: "Pull live prices from multiple crypto exchanges using APIs." },
-                { s: "02", t: "Arbitrage Detection", d: "Compare prices and calculate potential profit margins." },
-                { s: "03", t: "Profit & Risk Analysis", d: "Adjust for transaction fees, transfer times, and slippage." },
-                { s: "04", t: "Notifications", d: "Send Telegram or email alerts for profitable opportunities." }
+                { s: "01", t: "Data Input", d: "Collect and store cryptocurrency pricing data in a database." },
+                { s: "02", t: "Arbitrage Metrics", d: "Calculate potential profits and display them on the dashboard." },
+                { s: "03", t: "Trend Analysis", d: "Visualize historical profit trends and arbitrage opportunities." },
+                { s: "04", t: "Dashboard Alerts", d: "Prepare system to notify users about significant patterns or profits." }
               ].map((item) => (
                 <div key={item.s} className="flex gap-4">
                   <span className="text-cyan-500 font-mono font-bold">{item.s}</span>
@@ -120,33 +135,17 @@ export default function CryptoArbitragePage() {
             <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
               <BrainCircuit className="text-blue-400" size={20} /> Tech Stack
             </h3>
-
             <ul className="space-y-4 text-sm text-gray-300">
-              <li className="flex justify-between border-b border-white/5 pb-2">
-                <span>Python</span>
-                <span className="text-gray-500">Data Processing & Alerts</span>
-              </li>
-              <li className="flex justify-between border-b border-white/5 pb-2">
-                <span>Node.js</span>
-                <span className="text-gray-500">Backend Server & API Integration</span>
-              </li>
-              <li className="flex justify-between border-b border-white/5 pb-2">
-                <span>CoinGecko / Binance API</span>
-                <span className="text-gray-500">Live Market Data</span>
-              </li>
-              <li className="flex justify-between border-b border-white/5 pb-2">
-                <span>Telegram Bot</span>
-                <span className="text-gray-500">User Notifications</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Chart.js / Plotly</span>
-                <span className="text-gray-500">Visualizations</span>
-              </li>
+              <li className="flex justify-between border-b border-white/5 pb-2"><span>React / Next.js</span><span className="text-gray-500 text-xs">Frontend</span></li>
+              <li className="flex justify-between border-b border-white/5 pb-2"><span>Tailwind CSS</span><span className="text-gray-500 text-xs">Styling</span></li>
+              <li className="flex justify-between border-b border-white/5 pb-2"><span>Supabase</span><span className="text-gray-500 text-xs">Database</span></li>
+              <li className="flex justify-between border-b border-white/5 pb-2"><span>Chart.js</span><span className="text-gray-500 text-xs">Visuals</span></li>
+              <li className="flex justify-between"><span>Webhooks</span><span className="text-gray-500 text-xs">Alerts</span></li>
             </ul>
           </div>
         </div>
 
-        {/* GITHUB SECTION */}
+        {/* GITHUB LINK SECTION */}
         <div className="mt-16 flex justify-center">
           <a
             href="https://github.com/BS-Tech17/Crypto-Arbitrage-Dashboard"
@@ -155,12 +154,9 @@ export default function CryptoArbitragePage() {
             className="flex items-center gap-3 px-8 py-4 rounded-3xl bg-white/5 border border-white/10 hover:border-cyan-500/50 transition-all group"
           >
             <Github className="w-6 h-6 text-white group-hover:text-cyan-400" />
-            <span className="text-white font-medium group-hover:text-cyan-400">
-              View GitHub Repository
-            </span>
+            <span className="text-white font-medium group-hover:text-cyan-400">View GitHub Repository</span>
           </a>
         </div>
-
       </div>
     </main>
   )

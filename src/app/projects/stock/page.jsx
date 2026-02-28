@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
-import CryptoCarousel from "@/components/cryptoCarousel" // similar to StockCarousel
+import CryptoCarousel from "@/components/CryptoCarousel"
 import { 
   ArrowLeft, TrendingUp, LineChart, 
   Activity, Database, AlertTriangle, 
@@ -42,7 +42,7 @@ export default function CryptoArbitragePage() {
           {/* LEFT SIDE */}
           <div className="space-y-6">
             <Badge className="bg-cyan-500/10 text-cyan-400 border-cyan-500/20 px-3 py-1">
-              AI + Crypto Analytics
+              Crypto Analytics
             </Badge>
 
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
@@ -53,13 +53,12 @@ export default function CryptoArbitragePage() {
             </h1>
 
             <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
-              A real-time cryptocurrency arbitrage detection platform. 
-              Pulls live prices from multiple exchanges, calculates potential profits 
-              after transaction fees, and alerts users for optimal trading opportunities.
+              A clean dashboard showcasing cryptocurrency arbitrage metrics and patterns.
+              Designed for data visualization, historical analysis, and actionable insights.
             </p>
 
             <div className="flex flex-wrap gap-3">
-              {["Python", "Node.js", "CoinGecko API", "Binance API", "Telegram Bot"].map((tech) => (
+              {["React", "Next.js", "Tailwind CSS", "Supabase", "Chart.js"].map((tech) => (
                 <span
                   key={tech}
                   className="text-[10px] font-bold px-3 py-1.5 bg-white/5 border border-white/10 rounded-full uppercase tracking-widest text-gray-300"
@@ -70,14 +69,14 @@ export default function CryptoArbitragePage() {
             </div>
           </div>
 
-          {/* RIGHT SIDE - IMAGE CAROUSEL */}
+          {/* RIGHT SIDE - LARGER CAROUSEL */}
           <div className="relative group flex justify-center lg:justify-end">
 
             {/* Glow Effect */}
             <div className="absolute -inset-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
 
             {/* Carousel Container */}
-            <div className="relative w-full max-w-[600px] h-[380px] rounded-3xl border border-white/10 bg-black/40 backdrop-blur-sm shadow-2xl overflow-hidden">
+            <div className="relative w-full max-w-[700px] h-[500px] rounded-3xl border border-white/10 bg-black/40 backdrop-blur-sm shadow-2xl overflow-hidden">
               <CryptoCarousel />
             </div>
 
@@ -90,22 +89,22 @@ export default function CryptoArbitragePage() {
           <MetricCard 
             icon={<TrendingUp className="text-cyan-400" />} 
             title="Live Arbitrage Detection" 
-            desc="Tracks live crypto prices across multiple exchanges for profit opportunities." 
+            desc="Displays arbitrage opportunities and metrics in a clean, interactive dashboard." 
           />
           <MetricCard 
             icon={<Activity className="text-blue-400" />} 
-            title="Profit Calculation" 
-            desc="Calculates net profit after considering exchange fees and transfer costs." 
+            title="Profit Analysis" 
+            desc="Shows calculated profit trends over time for easy decision-making." 
           />
           <MetricCard 
             icon={<Database className="text-cyan-400" />} 
             title="Historical Patterns" 
-            desc="Stores historical arbitrage data to identify recurring opportunities." 
+            desc="Logs past data to help identify recurring arbitrage trends." 
           />
           <MetricCard 
             icon={<AlertTriangle className="text-blue-400" />} 
-            title="Alerts & Notifications" 
-            desc="Telegram or email alerts when profitable trades are detected." 
+            title="Notifications Ready" 
+            desc="Prepared to integrate alerts for key events and profitable trades." 
           />
         </div>
 
@@ -118,10 +117,10 @@ export default function CryptoArbitragePage() {
 
             <div className="space-y-6">
               {[
-                { s: "01", t: "Data Collection", d: "Pull live prices from multiple crypto exchanges using APIs." },
-                { s: "02", t: "Arbitrage Detection", d: "Compare prices and calculate potential profit margins." },
-                { s: "03", t: "Profit & Risk Analysis", d: "Adjust for transaction fees, transfer times, and slippage." },
-                { s: "04", t: "Notifications", d: "Send Telegram or email alerts for profitable opportunities." }
+                { s: "01", t: "Data Input", d: "Collect and store cryptocurrency pricing data in a database." },
+                { s: "02", t: "Arbitrage Metrics", d: "Calculate potential profits and display them on the dashboard." },
+                { s: "03", t: "Trend Analysis", d: "Visualize historical profit trends and arbitrage opportunities." },
+                { s: "04", t: "Dashboard Alerts", d: "Prepare system to notify users about significant patterns or profits." }
               ].map((item) => (
                 <div key={item.s} className="flex gap-4">
                   <span className="text-cyan-500 font-mono font-bold">{item.s}</span>
@@ -141,24 +140,24 @@ export default function CryptoArbitragePage() {
 
             <ul className="space-y-4 text-sm text-gray-300">
               <li className="flex justify-between border-b border-white/5 pb-2">
-                <span>Python</span>
-                <span className="text-gray-500">Data Processing & Alerts</span>
+                <span>React / Next.js</span>
+                <span className="text-gray-500">Frontend Framework</span>
               </li>
               <li className="flex justify-between border-b border-white/5 pb-2">
-                <span>Node.js</span>
-                <span className="text-gray-500">Backend Server & API Integration</span>
+                <span>Tailwind CSS</span>
+                <span className="text-gray-500">Styling & Layout</span>
               </li>
               <li className="flex justify-between border-b border-white/5 pb-2">
-                <span>CoinGecko / Binance API</span>
-                <span className="text-gray-500">Live Market Data</span>
+                <span>Supabase</span>
+                <span className="text-gray-500">Backend & Database</span>
               </li>
               <li className="flex justify-between border-b border-white/5 pb-2">
-                <span>Telegram Bot</span>
-                <span className="text-gray-500">User Notifications</span>
-              </li>
-              <li className="flex justify-between">
                 <span>Chart.js / Plotly</span>
                 <span className="text-gray-500">Visualizations</span>
+              </li>
+              <li className="flex justify-between">
+                <span>Optional Alerts</span>
+                <span className="text-gray-500">Future Notification Integration</span>
               </li>
             </ul>
           </div>
