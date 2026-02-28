@@ -35,10 +35,16 @@ export default function Navbar() {
           <h1 className="font-bold text-xl tracking-widest cursor-pointer">BHOOMIKA SAXENA</h1>
         </Link>
 
-        <div className="flex items-center gap-4 text-sm">
+        <div className="flex items-center gap-6 text-sm">
+          {/* Internal Scroll Link */}
           <button className="hover:text-cyan-400 transition" onClick={handleScrollToProjects}>
             Projects
           </button>
+
+          {/* New Page Link */}
+          <Link href="/certs" className="hover:text-cyan-400 transition">
+            Certifications
+          </Link>
 
           <button
             className={`hover:text-cyan-400 transition ${aboutOpen ? "text-cyan-400" : ""}`}
@@ -51,7 +57,7 @@ export default function Navbar() {
             <Button
               size="sm"
               variant="secondary"
-              className="bg-white/10 hover:bg-white/20 text-white border-none"
+              className="bg-white/10 hover:bg-white/20 text-white border-none px-4 rounded-full transition-all"
               onClick={handleScrollToTop}
             >
               Top
@@ -60,6 +66,7 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* About Dropdown */}
       {aboutOpen && (
         <div className="mt-4 w-full max-w-sm bg-zinc-900/90 border border-white/10 rounded-2xl p-6 backdrop-blur-2xl shadow-2xl relative animate-in fade-in slide-in-from-top-2 duration-300">
           <button
@@ -77,8 +84,7 @@ export default function Navbar() {
                 <span className="text-2xl">👤</span>
               </AvatarFallback>
             </Avatar>
-            <div className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 border-2 border-zinc-900 rounded-full"></div>
-
+            
             <div>
               <h3 className="text-lg font-semibold text-white mb-1">Bhoomika</h3>
               <p className="text-gray-400 text-xs leading-relaxed">
