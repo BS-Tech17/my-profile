@@ -66,7 +66,7 @@ export default function Home() {
         </header>
 
         {/* HERO */}
-        <section className="max-w-7xl mx-auto pt-44 pb-24 px-6 grid md:grid-cols-2 gap-16 items-center">
+        <section className="max-w-7xl mx-auto pt-34 pb-24 px-6 grid md:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter">
@@ -77,6 +77,7 @@ export default function Home() {
               </h1>
               <p className="text-gray-400 text-lg md:text-xl max-w-lg leading-relaxed">
                 Designing AI-driven automation systems blending IoT hardware, scalable platforms, and robotics.
+                Currently a final yearstudent at Manipal University Jaipur pursuing B. Tech. in CSE with IoT specialization.
               </p>
             </div>
 

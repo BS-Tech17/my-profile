@@ -37,6 +37,8 @@ export default function CertificationsPage() {
     { title: "Detection and Response", org: "Google", icon: <Activity className="text-red-400" size={18} /> },
 
     // --- DEVELOPMENT & CS CORE ---
+    { title: "Crash Course on Python", org: "Google/Coursera", icon: <Code className="text-blue-400" size={18} /> },
+    { title: "Intro to DevOps", org: "SimpliLearn", icon: <Layers className="text-orange-500" size={18} /> },
     { title: "Software Engineering: Testing", org: "HKUST", icon: <Layers className="text-gray-400" size={18} /> },
     { title: "Server side JS with Node.js", org: "NIIT", icon: <Server className="text-green-500" size={18} /> },
     { title: "Algorithms (DAA) - NPTEL", org: "NPTEL", icon: <GraduationCap className="text-orange-400" size={18} /> },
